@@ -1,0 +1,4 @@
+ScanditSDK
+==========
+
+Unofficial ScanditSDK library
