@@ -40,7 +40,29 @@ in a restricted area of the camera image, you should call the "restrictActiveSca
 the ScanditSDKBarcodePicker.</p></li>
 </ul>
 
+<p>See http://docs.scandit.com for details about the Scandit API.. </p>
+
 <p><br/></p>
+
+<h2>Bug fixes in 3.2.3. (December, 18th 2013)</h2>
+
+<ul>
+<li>Software update to eliminate an additional minor memory leak. </li>
+</ul>
+
+<h2>Bug fixes in 3.2.2. (December, 16th 2013)</h2>
+
+<ul>
+<li><p>Software update to remove two minor memory leaks. </p></li>
+<li><p>Software update to deactivate macro mode when Scandit SDK releases the camera. The Scandit SDK activates the macro mode in the camera and, when an UIImagePicker is started subsequently in the app, the macro mode of the camera remained activated in previous releases and could not be deactivated unless the app is sent to the background.</p></li>
+</ul>
+
+<h2>Bug fixes in 3.2.1 (November, 22th 2013)</h2>
+
+<ul>
+<li>Fixed issue that led to app crash whenever picker was presented as view controller (and
+not as subview) under iOS7.0.* and in combination with a certain state of the view hierarchy. In our test setup, we could reproduce this crash only when a MKMapView was present in the view hierarchy (other view configurations might possibly also cause this crash though). </li>
+</ul>
 
 <h2>Bug fixes in 3.2.0 (November, 1st 2013)</h2>
 

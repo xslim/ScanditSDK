@@ -149,7 +149,7 @@
 
 #pragma mark -
 #pragma mark Showing the ScanditSDKBarcodePicker overlayed as a view
-
+//! [ScanditSDKBarcodePicker overlayed as a view]
 /**
  * A simple example of how the barcode picker can be used in a simple view of various dimensions
  * and how it can be added to any other view.
@@ -157,22 +157,32 @@
 - (IBAction)overlayAsView {
     self.scanditSDKBarcodePicker = [[ScanditSDKBarcodePicker alloc]
 									initWithAppKey:self.appKey];
+    
+    // Customize the scan ui by removing the torch icon from this view
     [self.scanditSDKBarcodePicker.overlayController setTorchEnabled:NO];
     
-    // Add a button behind the subview to close it.
+    // Add a button behind the subview to close the barcode picker view.
     self.pickerSubviewButton = [[UIButton alloc] init];
     [self.pickerSubviewButton addTarget:self
 								 action:@selector(closePickerSubview)
 					   forControlEvents:UIControlEventTouchUpInside];
     
+    // add the button and the picker as a subview
     [self.view addSubview:self.pickerSubviewButton];
     [self.view addSubview:self.scanditSDKBarcodePicker.view];
     
     // Update the UI such that it fits the new dimension.
     [self adjustPickerToOrientation:self.interfaceOrientation];
     
+    // Set the delegate to receive callbacks.
+    // This is commented out here in the demo app since the result view with the scan results
+    // is not suitable for this overlay view
+	
+    // self.scanditSDKBarcodePicker.overlayController.delegate = self;
+    
 	[self.scanditSDKBarcodePicker startScanning];
 }
+//! [ScanditSDKBarcodePicker overlayed as a view]
 
 /**
  * A simple example of how the barcode picker can be used in a simple view of various dimensions
@@ -195,6 +205,12 @@
     // Update the UI such that it fits the new dimension.
     [self adjustPickerToOrientation:self.interfaceOrientation];
     
+    // Set the delegate to receive callbacks.
+    // This is commented out here in the demo app since the result view with the scan results
+    // is not suitable for this overlay view
+	
+    // self.scanditSDKBarcodePicker.overlayController.delegate = self;
+    
 	[self.scanditSDKBarcodePicker startScanning];
 }
 
@@ -214,17 +230,19 @@
 
 #pragma mark -
 #pragma mark Showing the ScanditSDKBarcodePicker as a modal UIViewController
-
+//! [ScanditSDKBarcodePicker as a modal view]
 /**
- * Configures and triggers ScanditSDK Scan View
+ * Configures and triggers ScanditSDK Scan View by presenting it modally
  */
 - (IBAction)modallyShowScanView {
 	self.scanditSDKBarcodePicker = [[ScanditSDKRotatingBarcodePicker alloc]
 									initWithAppKey:self.appKey];
 	
-	// Always show a toolbar so we can navigate away.
-	[self.scanditSDKBarcodePicker.overlayController showSearchBar:YES];
+	// Always show a toolbar (with cancel button) so we can navigate out of the scan view.
 	[self.scanditSDKBarcodePicker.overlayController showToolBar:YES];
+    
+    // Customize the scan UI by adding a search bar
+    [self.scanditSDKBarcodePicker.overlayController showSearchBar:YES];
 	
 	// Show a button to switch the camera from back to front and vice versa but only when using
 	// a tablet.
@@ -238,11 +256,11 @@
 	
 	[self.scanditSDKBarcodePicker startScanning];
 }
-
+//! [ScanditSDKBarcodePicker as a modal view]
 
 #pragma mark -
 #pragma mark Showing the ScanditSDKBarcodePicker in a UINavigationController
-
+//! [ScanditSDKBarcodePicker in a navigation controller]
 /**
  * This is a simple example of how one can push the ScanditSDKBarcodePicker in a navigation controller.
  */
@@ -261,12 +279,22 @@
     
 	// Show the navigation bar such that we can press the back button.
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [barcodePicker.overlayController setCameraSwitchVisibility:CAMERA_SWITCH_ALWAYS];
+    
+    // Show a button to switch the camera from back to front and vice versa but only when using
+	// a tablet.
+	[self.scanditSDKBarcodePicker.overlayController setCameraSwitchVisibility:CAMERA_SWITCH_ON_TABLET];
 	
+    // Set the delegate to receive callbacks.
+    // This is commented out here in the demo app since the result view with the scan results
+    // is not suitable for this navigation view
+	
+    // self.scanditSDKBarcodePicker.overlayController.delegate = self;
+    
     // Push the picker on the navigation stack and start scanning.
     [[self navigationController] pushViewController:barcodePicker animated:YES];
 	[barcodePicker startScanning];
 }
+//! [ScanditSDKBarcodePicker in a navigation controller]
 
 /**
  * Returns YES if the device runs at least the specified OS version.

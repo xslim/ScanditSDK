@@ -5,33 +5,6 @@
  * Copyright Mirasense AG
  */
 
-/**
- * 
- * Example (minimal) usage:
- *
- * Set up the barcode picker in one of your view controllers:
- *
- * @code
- *
- * // Instantiate the barcode picker.
- * scanditSDKBarcodePicker = [[ScanditSDKBarcodePicker alloc] initWithAppKey:kScanditSDKAppKey];
- *
- * // Set a class as the delegate for the overlay controller to handle events when
- * // a barcode is successfully scanned or manually entered or the cancel button is pressed.
- * scanditSDKBarcodePicker.overlayController.delegate = self;
- *
- * // Present the barcode picker modally
- * [self presentModalViewController:scanditSDKBarcodePicker animated:YES];
- *
- * // Start the scanning
- * [scanditSDKBarcodePicker startScanning];
- *
- * @endcode
- * 
- * 
- *
- */
-
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreLocation/CoreLocation.h>
@@ -92,6 +65,27 @@ typedef enum {
  * 
  * @ingroup scanditsdk-ios-api
  * 
+ * Example (minimal) usage:
+ *
+ * Set up the barcode picker in one of your view controllers:
+ *
+ * @code
+ *
+ * // Instantiate the barcode picker.
+ * scanditSDKBarcodePicker = [[ScanditSDKBarcodePicker alloc] initWithAppKey:kScanditSDKAppKey];
+ *
+ * // Set a class as the delegate for the overlay controller to handle events when
+ * // a barcode is successfully scanned or manually entered or the cancel button is pressed.
+ * scanditSDKBarcodePicker.overlayController.delegate = self;
+ *
+ * // Present the barcode picker modally
+ * [self presentModalViewController:scanditSDKBarcodePicker animated:YES];
+ *
+ * // Start the scanning
+ * [scanditSDKBarcodePicker startScanning];
+ *
+ * @endcode
+ *
  * @since 1.0.0
  *
  * \nosubgrouping
@@ -169,7 +163,7 @@ typedef enum {
  * 
  * @param scanditSDKAppKey your Scandit SDK App Key (available from your Scandit account)
  */
-+ (void)prepareWithAppKey:(NSString *)ScanditSDKAppKey;
++ (void)prepareWithAppKey:(NSString *)scanditSDKAppKey;
 
 /**
  * @brief Prepares a ScanditSDKBarcodePicker which accelerates the camera start with the 
@@ -185,7 +179,7 @@ typedef enum {
  * @param scanditSDKAppKey your Scandit SDK App Key (available from your Scandit account)
  * @param facing the desired camera direction
  */
-+ (void)prepareWithAppKey:(NSString *)ScanditSDKAppKey 
++ (void)prepareWithAppKey:(NSString *)scanditSDKAppKey
    cameraFacingPreference:(CameraFacingDirection)facing;
 
 /**
@@ -358,7 +352,7 @@ typedef enum {
  * 
  * @since 1.0.0
  * 
- * @param boolean indicating whether all 1D symbologies are enabled
+ * @param enabled boolean indicating whether all 1D symbologies are enabled
  */
 - (void)set1DScanningEnabled:(BOOL)enabled;
 
@@ -370,7 +364,7 @@ typedef enum {
  * 
  * @since 1.0.0
  *
- * @param boolean indicating whether all 2D symbologies are enabled
+ * @param enabled boolean indicating whether all 2D symbologies are enabled
  */
 - (void)set2DScanningEnabled:(BOOL)enabled;
 
@@ -381,7 +375,7 @@ typedef enum {
  *
  * @since 1.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setEan13AndUpc12Enabled:(BOOL)enabled;
 
@@ -392,7 +386,7 @@ typedef enum {
  *
  * @since 1.0.0
  *
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setEan8Enabled:(BOOL)enabled;
 
@@ -403,7 +397,7 @@ typedef enum {
  *
  * @since 1.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setUpceEnabled:(BOOL)enabled;
 
@@ -416,7 +410,7 @@ typedef enum {
  *
  * @since 1.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setCode39Enabled:(BOOL)enabled;
 
@@ -429,7 +423,7 @@ typedef enum {
  *
  * @since 1.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setCode128Enabled:(BOOL)enabled;
 
@@ -442,7 +436,7 @@ typedef enum {
  *
  * @since 1.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setItfEnabled:(BOOL)enabled;
 
@@ -455,7 +449,7 @@ typedef enum {
  *
  * @since 3.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setMsiPlesseyEnabled:(BOOL)enabled;
 
@@ -480,7 +474,7 @@ typedef enum {
  *
  * @since 2.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setQrEnabled:(BOOL)enabled;
 
@@ -494,7 +488,7 @@ typedef enum {
  * 
  * @since 2.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setDataMatrixEnabled:(BOOL)enabled;
 
@@ -508,7 +502,7 @@ typedef enum {
  *
  * @since 3.0.0
  * 
- * @param boolean indicating whether this symbology should be enabled.
+ * @param enabled boolean indicating whether this symbology should be enabled.
  */
 - (void)setPdf417Enabled:(BOOL)enabled;
 
@@ -525,7 +519,7 @@ typedef enum {
  * 
  * @since 2.0.0
  *
- * @param boolean indicating whether this mode should be enabled.
+ * @param enabled boolean indicating whether this mode should be enabled.
  */
 - (void)setMicroDataMatrixEnabled:(BOOL)enabled;
 
@@ -537,7 +531,7 @@ typedef enum {
  * 
  * @since 2.0.0
  * 
- * @param boolean indicating whether this mode should be enabled.
+ * @param enabled boolean indicating whether this mode should be enabled.
  */
 - (void)setInverseDetectionEnabled:(BOOL)enabled;
 
@@ -550,6 +544,8 @@ typedef enum {
  *
  * By default, this is disabled. 
  * 
+ * @param force boolean indicating whether this mode should be enabled.
+ *
  * @since 2.0.0
  */
 - (void)force2dRecognition:(BOOL)force;

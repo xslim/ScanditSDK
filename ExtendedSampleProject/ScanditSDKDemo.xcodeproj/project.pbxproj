@@ -81,7 +81,7 @@
 		AA6BAFB5135F746000154972 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFAB135F746000154972 /* CoreMedia.framework */; };
 		AA6BAFB6135F746000154972 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFAC135F746000154972 /* QuartzCore.framework */; };
 		AA6BAFCE135F7B4900154972 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFCD135F7B4900154972 /* CoreLocation.framework */; };
-		AACADC1217DEF65F006E5482 /* libscanditsdk-iphone-3.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-3.2.0.a */; };
+		AACADC1217DEF65F006E5482 /* libscanditsdk-iphone-3.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-3.2.3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,7 +187,7 @@
 		AA6BAFAB135F746000154972 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		AA6BAFAC135F746000154972 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AA6BAFCD135F7B4900154972 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-3.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libscanditsdk-iphone-3.2.0.a"; sourceTree = "<group>"; };
+		AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-3.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libscanditsdk-iphone-3.2.3.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +209,7 @@
 				AA6BAFB6135F746000154972 /* QuartzCore.framework in Frameworks */,
 				AA6BAFCE135F7B4900154972 /* CoreLocation.framework in Frameworks */,
 				AA483889138D911C00D3091A /* SystemConfiguration.framework in Frameworks */,
-				AACADC1217DEF65F006E5482 /* libscanditsdk-iphone-3.2.0.a in Frameworks */,
+				AACADC1217DEF65F006E5482 /* libscanditsdk-iphone-3.2.3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +319,7 @@
 		847EAE0E17BD03BB002FFF80 /* ScanditSDK */ = {
 			isa = PBXGroup;
 			children = (
-				AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-3.2.0.a */,
+				AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-3.2.3.a */,
 				847EAE0F17BD03BB002FFF80 /* scanditsdk.strings */,
 				847EAE1217BD03BB002FFF80 /* empty.cpp */,
 				847EAE1317BD03BB002FFF80 /* poweredby.png */,

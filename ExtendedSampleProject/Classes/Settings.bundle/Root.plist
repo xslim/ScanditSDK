@@ -586,7 +586,7 @@
 			<key>DefaultValue</key>
 			<string>scandit.com</string>
 			<key>File</key>
-			<string>http://www.scandit.com/support</string>
+			<string>http://docs.scandit.com/</string>
 			<key>Title</key>
 			<string>Open the online documentation</string>
 			<key>Type</key>

@@ -42,6 +42,7 @@
  *
  * @since 1.0.0
  * 
+ * @param overlayController ScanditSDKOverlayController that is delegating
  * @param barcode dictionary with two key value pairs ("barcode","symbology")
  *
  */
@@ -53,6 +54,7 @@
  *
  * @since 1.0.0
  *
+ * @param overlayController ScanditSDKOverlayController that is delegating
  * @param status dictionary (currently empty)
  *
  */
@@ -64,6 +66,7 @@
  *
  * @since 1.0.0
  *
+ * @param overlayController ScanditSDKOverlayController that is delegating
  * @param text manual search input encoded as an NSString
  *
  */
@@ -134,16 +137,6 @@ typedef enum {
  */
 @property (nonatomic, retain) UIToolbar *toolBar;
 
-/**
- * @brief Resets the scan screen user interface to its initial state.
- * 
- * This resets any information in the search bar and resets the animation showing the barcode 
- * locations to its initial state. 
- *
- * @since 1.0.0
- */
-- (void)resetUI;
-
 
 /** @name Sound Configuration
  *  Customize the scan sound. 
@@ -157,7 +150,7 @@ typedef enum {
  * 
  * @since 1.0.0
  * 
- * @param boolean indicating whether beep is enabled
+ * @param enabled boolean indicating whether beep is enabled
  */
 - (void)setBeepEnabled:(BOOL)enabled;
 
@@ -168,7 +161,7 @@ typedef enum {
  * 
  * @since 1.0.0
  *
- * @param boolean indicating whether vibrate is enabled
+ * @param enabled boolean indicating whether vibrate is enabled
  */
 - (void)setVibrateEnabled:(BOOL)enabled;
 
@@ -198,9 +191,11 @@ typedef enum {
 /**
  * @brief Enables or disables the torch toggle button for all devices/cameras that support a torch.
  *
- * By default it is enabled.
+ * By default it is enabled. The torch icon is never shown when the camera does not have a torch (ipad etc).
  * 
  * @since 2.0.0
+ * 
+ * @param enabled boolean indicating whether torch button should be shown.
  * 
  */
 - (void)setTorchEnabled:(BOOL)enabled;
@@ -300,7 +295,7 @@ typedef enum {
  * @param x relative x screen coordinate
  * @param y relative y screen coordinate
  * @param width in pixels
- * @param heigth in pixels
+ * @param height in pixels
  */
 - (void)setTorchButtonRelativeX:(float)x relativeY:(float)y width:(float)width height:(float)height;
 ///@}
@@ -377,7 +372,7 @@ typedef enum {
  * @param x relative distance from right screen edge
  * @param y relative y screen coordinate (from top)
  * @param width in pixels
- * @param heigth in pixels
+ * @param height in pixels
  */
 - (void)setCameraSwitchButtonRelativeInverseX:(float)x
 									relativeY:(float)y
@@ -425,6 +420,9 @@ typedef enum {
  * By default this is enabled.
  * 
  * @since 1.0.0
+ * 
+ * @param draw boolean indicating whether viewfinder rectangle should be drawn
+ *
  */
 - (void)drawViewfinder:(BOOL)draw;
 
@@ -437,6 +435,10 @@ typedef enum {
  * By default this is: white (1.0, 1.0, 1.0)
  *
  * @since 1.0.0
+ * 
+ * @param r float of red channel
+ * @param g float of green channel
+ * @param b float of blue channel
  *
  */
 - (void)setViewfinderColor:(float)r green:(float)g blue:(float)b;
@@ -449,20 +451,36 @@ typedef enum {
  *
  * By default this is: light blue (0.222, 0.753, 0.8)
  *
+ * @param r float of red channel
+ * @param g float of green channel
+ * @param b float of blue channel
+ *
  * @since 1.0.0
  *
  */
 - (void)setViewfinderDecodedColor:(float)r green:(float)g blue:(float)b;
 
 /**
- * @brief Sets the text that will be displayed while non-autofocusing cameras are initialized.
+ * @brief Sets the text that will be displayed on ipod4 when camera is initialized.
  *
  * By default this is: "Initializing camera..."
  *
  * @since 1.0.0
+ * 
+ * @param text string shown when camera is initialized on an ipod4
  *
  */
 - (void)setTextForInitializingCamera:(NSString *)text;
+
+/**
+ * @brief Resets the scan screen user interface to its initial state.
+ *
+ * This resets any information in the search bar and resets the animation showing the barcode
+ * locations to its initial state.
+ *
+ * @since 1.0.0
+ */
+- (void)resetUI;
 
 ///@}
 
@@ -481,6 +499,11 @@ typedef enum {
  * 
  * @since 2.0.0
  * 
+ * @param xOffset x offset in pixels in portrait mode
+ * @param yOffset y offset in pixels in portrait mode
+ * @param landscapeXOffset x offset in pixels in landscape mode
+ * @param landscapeYOffset y offset in pixels in landscape mode
+ * 
  */
 - (void)setLogoXOffset:(int)xOffset
 			   yOffset:(int)yOffset
@@ -497,6 +520,10 @@ typedef enum {
  * Scandit SDK Enterprise Packages.
  *
  * By default this is: "poweredby.png"
+ * 
+ * @param fileName of poweredby logo (without suffix)
+ * @param extension file type
+ * @return boolean indicating whether the change was successful.
  */
 - (BOOL)setBannerImageWithResource:(NSString *)fileName ofType:(NSString *)extension;
 
@@ -509,6 +536,8 @@ typedef enum {
 * use this method to hide the poweredby logo.
 *
 * @since 2.0.0
+*
+* @param offset vertical offset in pixels by which logo should be moved
 *
 * By default this is: 0
 */
@@ -526,7 +555,7 @@ typedef enum {
  *
  * @since 1.0.0
  * 
- * @param boolean indicating whether toolbar should be shown.
+ * @param show boolean indicating whether toolbar should be shown.
  *
  */
 - (void)showToolBar:(BOOL)show;
@@ -538,7 +567,7 @@ typedef enum {
  *
  * @since 1.0.0
  * 
- * @param string caption for button
+ * @param caption string used for cancel button caption
  *
  */
 - (void)setToolBarButtonCaption:(NSString *)caption;
@@ -555,7 +584,7 @@ typedef enum {
  *
  * @since 1.0.0
  * 
- * @param boolean indicating whether searchbar should be visible
+ * @param show boolean indicating whether searchbar should be visible
  *
  */
 - (void)showSearchBar:(BOOL)show;
@@ -566,6 +595,8 @@ typedef enum {
  * By default this is: "Go"
  *
  * @since 1.0.0
+ * 
+ * @param caption string used for button caption
  *
  */
 - (void)setSearchBarActionButtonCaption:(NSString *)caption;
@@ -578,6 +609,8 @@ typedef enum {
  * By default this is: "Cancel"
  *
  * @since 1.0.0
+ * 
+ * @param caption string used for button caption
  *
  */
 - (void)setSearchBarCancelButtonCaption:(NSString *)caption;
@@ -588,6 +621,8 @@ typedef enum {
  * By default this is: "Scan barcode or enter it here"
  *
  * @since 1.0.0
+ * 
+ * @param text string as placeholder text in search bar
  *
  */
 - (void)setSearchBarPlaceholderText:(NSString *)text;
@@ -598,6 +633,8 @@ typedef enum {
  * By default this is: UIKeyboardTypeNumberPad
  *
  * @since 1.0.0
+ * 
+ * @param keyboardType type of keyboard that is shown when user uses search bar
  *
  */
 - (void)setSearchBarKeyboardType:(UIKeyboardType)keyboardType;
@@ -609,7 +646,7 @@ typedef enum {
  * 
  * @since 1.0.0
  *
- * @param length maxium number of input characters
+ * @param length maximum number of input characters
  */
 - (void)setMinSearchBarBarcodeLength:(NSInteger)length;
 
@@ -620,7 +657,7 @@ typedef enum {
  * 
  * @since 1.0.0
  * 
- * @param length maxium number of input characters
+ * @param length maximum number of input characters
  */
 - (void)setMaxSearchBarBarcodeLength:(NSInteger)length;
 

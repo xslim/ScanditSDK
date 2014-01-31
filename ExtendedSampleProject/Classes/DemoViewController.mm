@@ -84,7 +84,7 @@
 
 #pragma mark -
 #pragma mark Showing the ScanditSDKBarcodePicker in a UITabBarController
-
+//! [ScanditSDKBarcodePicker in its own tab]
 /**
  * This is a simple example of how one can start the ScanditSDKBarcodePicker in its own tab.
  */
@@ -122,6 +122,8 @@
     [[self tabBarController] setSelectedIndex:3];
 	[self.scanditSDKBarcodePicker startScanning];
 }
+//! [ScanditSDKBarcodePicker in its own tab]
+
 
 - (void)tabBarController:(UITabBarController *)tabBarController
  didSelectViewController:(UIViewController *)viewController {
@@ -151,6 +153,7 @@
 	[picker setCode39Enabled:[settings boolForKey:@"code39Enabled"]];
 	[picker setCode128Enabled:[settings boolForKey:@"code128Enabled"]];
 	[picker setMsiPlesseyEnabled:[settings boolForKey:@"msiPlesseyEnabled"]];
+    [picker setItfEnabled:[settings boolForKey:@"itfEnabled"]];
 	
 	int checksum = [settings integerForKey:@"msiPlesseyChecksum"];
 	MsiPlesseyChecksumType checksumType = CHECKSUM_MOD_10;
