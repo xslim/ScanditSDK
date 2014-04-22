@@ -76,7 +76,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>MSI Plessey</string>
+			<string>MSI Plessey *</string>
 			<key>Key</key>
 			<string>msiPlesseyEnabled</string>
 			<key>DefaultValue</key>
@@ -107,6 +107,26 @@
 				<string>mod 1010</string>
 				<string>mod 1110</string>
 			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>GS1 DataBar *</string>
+			<key>Key</key>
+			<string>dataBarEnabled</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>GS1 DataBar Expanded *</string>
+			<key>Key</key>
+			<string>dataBarExpandedEnabled</string>
+			<key>DefaultValue</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>Type</key>

@@ -88,7 +88,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="34"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3.2.3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="61">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4.0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="61">
                             <rect key="frame" x="213" y="32" width="102" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>

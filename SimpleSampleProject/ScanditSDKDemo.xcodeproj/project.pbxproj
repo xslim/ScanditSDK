@@ -52,7 +52,7 @@
 		AA6BAFB5135F746000154972 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFAB135F746000154972 /* CoreMedia.framework */; };
 		AA6BAFB6135F746000154972 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFAC135F746000154972 /* QuartzCore.framework */; };
 		AA6BAFCE135F7B4900154972 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFCD135F7B4900154972 /* CoreLocation.framework */; };
-		AACADC1017DEF2D5006E5482 /* libscanditsdk-iphone-3.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AACADC0F17DEF2D5006E5482 /* libscanditsdk-iphone-3.2.3.a */; };
+		AACADC1017DEF2D5006E5482 /* libscanditsdk-iphone-4.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AACADC0F17DEF2D5006E5482 /* libscanditsdk-iphone-4.0.0.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,7 +109,7 @@
 		AA6BAFAB135F746000154972 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		AA6BAFAC135F746000154972 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AA6BAFCD135F7B4900154972 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		AACADC0F17DEF2D5006E5482 /* libscanditsdk-iphone-3.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libscanditsdk-iphone-3.2.3.a"; sourceTree = "<group>"; };
+		AACADC0F17DEF2D5006E5482 /* libscanditsdk-iphone-4.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libscanditsdk-iphone-4.0.0.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,7 @@
 				AA6BAFB6135F746000154972 /* QuartzCore.framework in Frameworks */,
 				AA6BAFCE135F7B4900154972 /* CoreLocation.framework in Frameworks */,
 				AA483889138D911C00D3091A /* SystemConfiguration.framework in Frameworks */,
-				AACADC1017DEF2D5006E5482 /* libscanditsdk-iphone-3.2.3.a in Frameworks */,
+				AACADC1017DEF2D5006E5482 /* libscanditsdk-iphone-4.0.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +220,7 @@
 		847EADE117BD0377002FFF80 /* ScanditSDK */ = {
 			isa = PBXGroup;
 			children = (
-				AACADC0F17DEF2D5006E5482 /* libscanditsdk-iphone-3.2.3.a */,
+				AACADC0F17DEF2D5006E5482 /* libscanditsdk-iphone-4.0.0.a */,
 				847EADE217BD0377002FFF80 /* scanditsdk.strings */,
 				847EADE517BD0377002FFF80 /* empty.cpp */,
 				847EADE617BD0377002FFF80 /* poweredby.png */,
@@ -364,7 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -377,7 +377,7 @@
 				GCC_PREFIX_HEADER = ScanditSDKDemo_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ScanditSDKDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../ScanditSDK\"";
 				PRODUCT_NAME = ScanditSDKDemo;
 				PROVISIONING_PROFILE = "";
@@ -390,7 +390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -402,7 +402,7 @@
 				GCC_PREFIX_HEADER = ScanditSDKDemo_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ScanditSDKDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../ScanditSDK\"";
 				PRODUCT_NAME = ScanditSDKDemo;
 				PROVISIONING_PROFILE = "";
@@ -415,7 +415,7 @@
 		AAEDE67D1576B78100CD24F5 /* AdHocDistribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -429,7 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -442,7 +442,7 @@
 				GCC_PREFIX_HEADER = ScanditSDKDemo_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ScanditSDKDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../ScanditSDK\"";
 				PRODUCT_NAME = ScanditSDKDemo;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -455,7 +455,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -467,7 +467,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

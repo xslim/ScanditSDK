@@ -167,6 +167,9 @@
 		checksumType = CHECKSUM_MOD_1110;
 	}
 	[picker setMsiPlesseyChecksumType:checksumType];
+    
+    [picker setGS1DataBarEnabled:[settings boolForKey:@"dataBarEnabled"]];
+    [picker setGS1DataBarExpandedEnabled:[settings boolForKey:@"dataBarExpandedEnabled"]];
 	
 	[picker setQrEnabled:[settings boolForKey:@"qrEnabled"]];
 	[picker setDataMatrixEnabled:[settings boolForKey:@"dataMatrixEnabled"]];
@@ -243,7 +246,14 @@
 	[self.scanditSDKBarcodePicker stopScanning];
 	
 	if (barcodeResult == nil) return;
-	
+
+    NSDictionary *dic = [[NSDictionary alloc] initWithDictionary:barcodeResult];
+    // Slightly delaying the frozen overlay to show the indicator around the barcode.
+    [self performSelector:@selector(showFrozenLabel:) withObject:dic afterDelay:0.1];
+}
+
+
+- (void)showFrozenLabel:(NSDictionary *)barcodeResult {
     NSString *symbology = [barcodeResult objectForKey:@"symbology"];
 	NSString *barcode = [barcodeResult objectForKey:@"barcode"];
 	NSString *title = [NSString stringWithFormat:@"Scanned %@ code: %@", symbology, barcode];

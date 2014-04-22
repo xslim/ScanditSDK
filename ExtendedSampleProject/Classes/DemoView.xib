@@ -55,7 +55,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="34"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3.2.3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="55">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4.0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="55">
                             <rect key="frame" x="211" y="31" width="98" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>

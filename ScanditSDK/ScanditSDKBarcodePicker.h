@@ -330,6 +330,14 @@ typedef enum {
 - (void)stopScanningAndKeepTorchState;
 
 /**
+ * @brief Stops the scanning process and stops the camera feed, freezing it. This will result in a
+ * reset of the focus and take longer to focus on a new code when started again.
+ *
+ * @since 3.2.4
+ */
+- (void)stopScanningAndFreeze;
+
+/**
  * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
  *
  * @brief Resets the state of the barcode picker. 
@@ -466,6 +474,32 @@ typedef enum {
  * @param type the MSIPlesseyChecksumType your application uses
  */
 - (void)setMsiPlesseyChecksumType:(MsiPlesseyChecksumType)type;
+
+/**
+ * @brief Enables or disables the barcode decoder for GS1 DataBar codes.
+ *
+ * By default scanning of GS1 DataBar barcodes is disabled. Note:
+ * GS1 DataBar scanning is only available with the
+ * Scandit SDK Enterprise Basic or Enterprise Premium Package.
+ *
+ * @since 4.0.0
+ *
+ * @param enabled boolean indicating whether this symbology should be enabled.
+ */
+- (void)setGS1DataBarEnabled:(BOOL)enabled;
+
+/**
+ * @brief Enables or disables the barcode decoder for GS1 DataBar Expanded codes.
+ *
+ * By default scanning of GS1 DataBar Expanded barcodes is disabled. Note:
+ * GS1 DataBar scanning is only available with the
+ * Scandit SDK Enterprise Basic or Enterprise Premium Package.
+ *
+ * @since 4.0.0
+ *
+ * @param enabled boolean indicating whether this symbology should be enabled.
+ */
+- (void)setGS1DataBarExpandedEnabled:(BOOL)enabled;
 
 /**
  * @brief Enables or disables the barcode decoder for QR codes.
