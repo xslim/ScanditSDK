@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ScanditSDK"
-  s.version      = "4.0.0"
+  s.version      = "4.0.1"
   s.summary      = 'ScanditSDK'
   s.description  = "Barcode Scanner SDK"
   s.homepage     = "http://www.scandit.com"
@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.source_files = 'ScanditSDK/*.{h,cpp}'
   s.resources = 'ScanditSDK/*.{png,wav,lproj}' 
 
-  s.preserve_paths = 'ScanditSDK/libscanditsdk-iphone-4.0.0.a'
-  s.library = 'scanditsdk-iphone-4.0.0','z', 'iconv', 'c++'
+  s.preserve_paths = 'ScanditSDK/libscanditsdk-iphone-4.0.1.a'
+  s.library = 'scanditsdk-iphone-4.0.1','z', 'iconv', 'c++'
   
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/ScanditSDK/ScanditSDK"' }
 

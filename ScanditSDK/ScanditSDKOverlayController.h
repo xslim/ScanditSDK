@@ -3,15 +3,15 @@
  *
  *
  * The overlay controller can be used to configure various scan screen UI elements such as
- * search bar, toolbar, torch, camera switch icon, scandit logo and the viewfinder. 
+ * search bar, toolbar, torch, camera switch icon, scandit logo and the viewfinder.
  *
- * Developers can inherit from the ScanditSDKOverlayController to implement their own 
- * scan screen user interfaces. 
- * 
+ * Developers can inherit from the ScanditSDKOverlayController to implement their own
+ * scan screen user interfaces.
+ *
  * @since 1.0.0
  *
  *  Copyright 2010 Mirasense AG. All rights reserved.
-*/
+ */
 
 #import <UIKit/UIKit.h>
 #import "AudioToolbox/AudioServices.h"
@@ -21,33 +21,33 @@
 @class ScanditSDKOverlayController;
 
 /**
- * @brief protocol to handle barcode scan, cancel and manual search events. 
+ * @brief protocol to handle barcode scan, cancel and manual search events.
  * @ingroup scanditsdk-ios-api
  * @since 1.0.0
  */
 @protocol ScanditSDKOverlayControllerDelegate
 /**
- * @brief Is called when a barcode is successfully decoded. 
- * 
- * The dictionary contains two key-value pairs. 
- * 
+ * @brief Is called when a barcode is successfully decoded.
+ *
+ * The dictionary contains two key-value pairs.
+ *
  * key: "barcode"
  * value: barcode data decoded (as UTF8 encoded NSString)
- * 
+ *
  * key: "symbology"
  * value: the symbology of the barcode decoded. The following barcode symbology identifiers are returned:
- * 
- * "EAN8", "EAN13", "UPC12", "UPCE", "CODE128", "GS1-128", "CODE39", "ITF", "QR", "GS1-QR", 
+ *
+ * "EAN8", "EAN13", "UPC12", "UPCE", "CODE128", "GS1-128", "CODE39", "ITF", "QR", "GS1-QR",
  * "DATAMATRIX", "GS1-DATAMATRIX", "PDF417", "MSI"
  *
  * @since 1.0.0
- * 
+ *
  * @param overlayController ScanditSDKOverlayController that is delegating
  * @param barcode dictionary with two key value pairs ("barcode","symbology")
  *
  */
-- (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController 
-                 didScanBarcode:(NSDictionary *)barcode;
+- (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController
+                     didScanBarcode:(NSDictionary *)barcode;
 
 /**
  * @brief Is called when the user clicks the cancel button in the scan user interface
@@ -58,8 +58,8 @@
  * @param status dictionary (currently empty)
  *
  */
-- (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController 
-            didCancelWithStatus:(NSDictionary *)status;
+- (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController
+                didCancelWithStatus:(NSDictionary *)status;
 
 /**
  * @brief Is called when the search bar is shown and the user enters a search term manually.
@@ -70,8 +70,8 @@
  * @param text manual search input encoded as an NSString
  *
  */
-- (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController 
-                didManualSearch:(NSString *)text;
+- (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController
+                    didManualSearch:(NSString *)text;
 @end
 
 /**
@@ -100,7 +100,7 @@ typedef enum {
  *
  * @since 1.0.0
  *
- * \nosubgrouping 
+ * \nosubgrouping
  *
  *  Copyright 2010 Mirasense AG. All rights reserved.
  */
@@ -113,7 +113,7 @@ typedef enum {
 }
 
 /**
- * @brief The overlay controller delegate that handles callbacks such as didScanBarcode or 
+ * @brief The overlay controller delegate that handles callbacks such as didScanBarcode or
  * didCancelWithStatus.
  *
  * @since 1.0.0
@@ -122,7 +122,7 @@ typedef enum {
 @property (nonatomic, assign) id<ScanditSDKOverlayControllerDelegate> delegate;
 
 /**
- * @brief The manual search bar that can be shown at the top of the scan sreen. 
+ * @brief The manual search bar that can be shown at the top of the scan sreen.
  *
  * @since 1.0.0
  *
@@ -139,26 +139,26 @@ typedef enum {
 
 
 /** @name Sound Configuration
- *  Customize the scan sound. 
+ *  Customize the scan sound.
  */
 ///@{
 
 /**
  * @brief Enables (or disables) the sound when a barcode is recognized.
- * 
+ *
  * Enabled by default.
- * 
+ *
  * @since 1.0.0
- * 
+ *
  * @param enabled boolean indicating whether beep is enabled
  */
 - (void)setBeepEnabled:(BOOL)enabled;
 
 /**
  * @brief Enables or disables the vibration when a barcode is recognized.
- * 
+ *
  * Enabled by default.
- * 
+ *
  * @since 1.0.0
  *
  * @param enabled boolean indicating whether vibrate is enabled
@@ -166,19 +166,19 @@ typedef enum {
 - (void)setVibrateEnabled:(BOOL)enabled;
 
 /**
- * @brief Sets the audio sound played when a code has been successfully recognized. 
- * 
+ * @brief Sets the audio sound played when a code has been successfully recognized.
+ *
  * File needs to be placed in Resources folder.
  *
  * Note: This feature is only available with the
- * Scandit SDK Enterprise Packages. 
- * 
+ * Scandit SDK Enterprise Packages.
+ *
  * The default is: "beep.wav"
- * 
+ *
  * @since 2.0.0
- * 
- * @param path file name of sound file (without suffix) 
- * @param extension file type 
+ *
+ * @param path file name of sound file (without suffix)
+ * @param extension file type
  * @return boolean indicating whether the change was successful.
  */
 - (BOOL)setScanSoundResource:(NSString *)path ofType:(NSString *)extension;
@@ -192,29 +192,29 @@ typedef enum {
  * @brief Enables or disables the torch toggle button for all devices/cameras that support a torch.
  *
  * By default it is enabled. The torch icon is never shown when the camera does not have a torch (ipad etc).
- * 
+ *
  * @since 2.0.0
- * 
+ *
  * @param enabled boolean indicating whether torch button should be shown.
- * 
+ *
  */
 - (void)setTorchEnabled:(BOOL)enabled;
 
 /**
- * @brief Sets the image which is being drawn when the torch is on. 
- * 
- * If you want this to be displayed in proper resolution on high resolution screens, you need to also provide a 
- * resource with the same name but @2x appended and in higher resolution (like flashlight-turn-on-icon@2x.png). 
+ * @brief Sets the image which is being drawn when the torch is on.
+ *
+ * If you want this to be displayed in proper resolution on high resolution screens, you need to also provide a
+ * resource with the same name but @2x appended and in higher resolution (like flashlight-turn-on-icon@2x.png).
  * Use this method if you want
- * to use the same image also in the button pressed state. 
+ * to use the same image also in the button pressed state.
  *
  * File needs to be placed in Resources folder.
  *
  * By default this is: "flashlight-turn-on-icon.png"
- * 
+ *
  * @since 2.0.0
- * 
- * @param fileName image file when torch is on  (without suffix) 
+ *
+ * @param fileName image file when torch is on  (without suffix)
  * @param extension file type
  * @return boolean indicating whether the change was successful.
  */
@@ -222,17 +222,17 @@ typedef enum {
                          ofType:(NSString *)extension;
 
 /**
- * @brief Sets the images which are being when the torch is on.  
- * 
+ * @brief Sets the images which are being when the torch is on.
+ *
  * You should also provide a high resolution resource with the same name but @2x appended (e.g. flashlight-turn-on-icon@2x.png).
  *
  * File needs to be placed in Resources folder.
  *
- * By default this is: "flashlight-turn-on-icon.png" and "flashlight-turn-on-icon-pressed.png" 
- * 
+ * By default this is: "flashlight-turn-on-icon.png" and "flashlight-turn-on-icon-pressed.png"
+ *
  * @since 2.0.0
- * 
- * @param fileName  image file shown when torch is on 
+ *
+ * @param fileName  image file shown when torch is on
  * @param pressedFileName  image file name shown when button is pressed and torch is on
  * @param extension file type
  * @return boolean indicating whether the change was successful.
@@ -272,7 +272,7 @@ typedef enum {
  * By default this is: "flashlight-turn-off-icon.png" and "flashlight-turn-off-icon-pressed.png"
  *
  * @since 2.0.0
- * 
+ *
  * @param fileName  image file shown when torch is off in Resources folder
  * @param pressedFileName  image file name shown when button is pressed and torch is off
  * @param extension file type
@@ -283,15 +283,15 @@ typedef enum {
                           ofType:(NSString *)extension;
 
 /**
- * @brief Sets the position at which the button to enable the torch is drawn. 
+ * @brief Sets the position at which the button to enable the torch is drawn.
  *
  * The X and Y coordinates are
  * relative to the screen size, which means they have to be between 0 and 1.
  *
  * By default this is set to x = 0.05, y = 0.01, width = 67, height = 33.
- * 
+ *
  * @since 2.0.0
- * 
+ *
  * @param x relative x screen coordinate
  * @param y relative y screen coordinate
  * @param width in pixels
@@ -308,24 +308,24 @@ typedef enum {
  * @brief Sets when the camera switch button is visible for all devices that have more than one camera.
  *
  * By default it is CAMERA_SWITCH_NEVER.
- * 
+ *
  * @since 3.0.0
- * 
+ *
  * @param visibility enumeration with different visibility options (CAMERA_SWITCH_NEVER,CAMERA_SWITCH_ON_TABLET,
  * CAMERA_SWITCH_ALWAYS)
  */
 - (void)setCameraSwitchVisibility:(CameraSwitchVisibility)visibility;
 
 /**
- * @brief Sets the image which is being drawn when the device has more than one camera and camera switch visibility 
+ * @brief Sets the image which is being drawn when the device has more than one camera and camera switch visibility
  * is enabled.
- * 
- * Make sure you provide a high resolution equivalent with the @2x extension. The same icon is also shown when the button is pressed. 
+ *
+ * Make sure you provide a high resolution equivalent with the @2x extension. The same icon is also shown when the button is pressed.
  *
  * File needs to be placed in Resources folder.
  *
  * By default this is: "camera-swap-icon.png"
- * 
+ *
  * @since 3.0.0
  *
  * @param fileName of image file with camera swap button (without suffix)
@@ -335,11 +335,11 @@ typedef enum {
 - (BOOL)setCameraSwitchImageResource:(NSString *)fileName
                               ofType:(NSString *)extension;
 
-/** 
+/**
  * @brief Sets the images which are being drawn when the device has more than one camera and camera switch visibility
  * is enabled.
  *
- * Make sure you provide a high resolution equivalent with the @2x extension. 
+ * Make sure you provide a high resolution equivalent with the @2x extension.
  *
  * File needs to be placed in Resources folder.
  *
@@ -358,8 +358,8 @@ typedef enum {
                               ofType:(NSString *)extension;
 
 /**
- * @brief Sets the position at which the button to switch the camera is drawn. 
- * 
+ * @brief Sets the position at which the button to switch the camera is drawn.
+ *
  * The X and Y coordinates are
  * relative to the screen size, which means they have to be between 0 and 1. Be aware that the x
  * coordinate is calculated from the right side of the screen and not the left like with the torch
@@ -412,15 +412,15 @@ typedef enum {
              landscapeWidth:(float)lW;
 
 /**
- * @brief Shows/hides viewfinder rectangle and highlighted barcode location in the scan screen user interface. 
+ * @brief Shows/hides viewfinder rectangle and highlighted barcode location in the scan screen user interface.
  *
  * Note: This feature is only available with the
  * Scandit SDK Enterprise Packages.
  *
  * By default this is enabled.
- * 
+ *
  * @since 1.0.0
- * 
+ *
  * @param draw boolean indicating whether viewfinder rectangle should be drawn
  *
  */
@@ -435,7 +435,7 @@ typedef enum {
  * By default this is: white (1.0, 1.0, 1.0)
  *
  * @since 1.0.0
- * 
+ *
  * @param r float of red channel
  * @param g float of green channel
  * @param b float of blue channel
@@ -466,7 +466,7 @@ typedef enum {
  * By default this is: "Initializing camera..."
  *
  * @since 1.0.0
- * 
+ *
  * @param text string shown when camera is initialized on an ipod4
  *
  */
@@ -485,25 +485,25 @@ typedef enum {
 ///@}
 
 /** @name Logo Configuration
- *  Customize the scanning by Scandit logo - Note that including the logo in the UI is mandatory. 
+ *  Customize the scanning by Scandit logo - Note that including the logo in the UI is mandatory.
  */
 ///@{
 
 /**
  * @brief Sets the x and y offset at which the scanning by Scandit logo is drawn for both portrait and landscape
- * orientation. 
- * 
+ * orientation.
+ *
  * Please note that the standard Scandit SDK license do not allow you to hide the logo.
  *
  * By default this is set to xOffset = 0, yOffset = 0, landscapeXOffset = 0, landscapeYOffset = 0.
- * 
+ *
  * @since 2.0.0
- * 
+ *
  * @param xOffset x offset in pixels in portrait mode
  * @param yOffset y offset in pixels in portrait mode
  * @param landscapeXOffset x offset in pixels in landscape mode
  * @param landscapeYOffset y offset in pixels in landscape mode
- * 
+ *
  */
 - (void)setLogoXOffset:(int)xOffset
 			   yOffset:(int)yOffset
@@ -512,15 +512,15 @@ typedef enum {
 
 /**
  * @brief Sets the "scanning by Scandit" image which is being drawn at the bottom of the scan screen.
- * 
- * Use this method to show an alternative scanning by Scandit logo provided for your application 
- * by the Scandit team. Do not use this method without consulting with the Scandit team.   
- * 
+ *
+ * Use this method to show an alternative scanning by Scandit logo provided for your application
+ * by the Scandit team. Do not use this method without consulting with the Scandit team.
+ *
  * Note: This feature is only available with the
  * Scandit SDK Enterprise Packages.
  *
  * By default this is: "poweredby.png"
- * 
+ *
  * @param fileName of poweredby logo (without suffix)
  * @param extension file type
  * @return boolean indicating whether the change was successful.
@@ -528,19 +528,19 @@ typedef enum {
 - (BOOL)setBannerImageWithResource:(NSString *)fileName ofType:(NSString *)extension;
 
 /**
-* @deprecated:  This function was replaced by setLogoXOffset:yOffset: in Scandit SDK 3.*
-*
-* @brief Deprecated: Sets the y offset at which the Scandit logo should be drawn.
-*
-* Please note that the standard Scandit SDK licenses do not allow you to hide the logo. Do not
-* use this method to hide the poweredby logo.
-*
-* @since 2.0.0
-*
-* @param offset vertical offset in pixels by which logo should be moved
-*
-* By default this is: 0
-*/
+ * @deprecated:  This function was replaced by setLogoXOffset:yOffset: in Scandit SDK 3.*
+ *
+ * @brief Deprecated: Sets the y offset at which the Scandit logo should be drawn.
+ *
+ * Please note that the standard Scandit SDK licenses do not allow you to hide the logo. Do not
+ * use this method to hide the poweredby logo.
+ *
+ * @since 2.0.0
+ *
+ * @param offset vertical offset in pixels by which logo should be moved
+ *
+ * By default this is: 0
+ */
 - (void)setInfoBannerOffset:(int)offset;
 ///@}
 
@@ -554,7 +554,7 @@ typedef enum {
  * @brief Adds (or removes) a tool bar to/from the bottom of the scan screen.
  *
  * @since 1.0.0
- * 
+ *
  * @param show boolean indicating whether toolbar should be shown.
  *
  */
@@ -566,7 +566,7 @@ typedef enum {
  * By default this is: "Cancel"
  *
  * @since 1.0.0
- * 
+ *
  * @param caption string used for cancel button caption
  *
  */
@@ -583,7 +583,7 @@ typedef enum {
  * @brief Adds (or removes) a search bar to/from the top of the scan screen.
  *
  * @since 1.0.0
- * 
+ *
  * @param show boolean indicating whether searchbar should be visible
  *
  */
@@ -595,7 +595,7 @@ typedef enum {
  * By default this is: "Go"
  *
  * @since 1.0.0
- * 
+ *
  * @param caption string used for button caption
  *
  */
@@ -609,7 +609,7 @@ typedef enum {
  * By default this is: "Cancel"
  *
  * @since 1.0.0
- * 
+ *
  * @param caption string used for button caption
  *
  */
@@ -621,7 +621,7 @@ typedef enum {
  * By default this is: "Scan barcode or enter it here"
  *
  * @since 1.0.0
- * 
+ *
  * @param text string as placeholder text in search bar
  *
  */
@@ -633,7 +633,7 @@ typedef enum {
  * By default this is: UIKeyboardTypeNumberPad
  *
  * @since 1.0.0
- * 
+ *
  * @param keyboardType type of keyboard that is shown when user uses search bar
  *
  */
@@ -641,9 +641,9 @@ typedef enum {
 
 /**
  * @brief Sets the minimum size that a barcode entered in the manual searchbar has to have to possibly be valid.
- * 
+ *
  * By default this is set to 8.
- * 
+ *
  * @since 1.0.0
  *
  * @param length maximum number of input characters
@@ -652,11 +652,11 @@ typedef enum {
 
 /**
  * @brief Sets the maximum size that a barcode entered in the manual searchbar can have to possibly be valid.
- * 
+ *
  * By default this is set to 100.
- * 
+ *
  * @since 1.0.0
- * 
+ *
  * @param length maximum number of input characters
  */
 - (void)setMaxSearchBarBarcodeLength:(NSInteger)length;
@@ -670,8 +670,8 @@ typedef enum {
 /**
  * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
  *
- * @brief Deprecated: Add the 'most likely barcode' UI element. 
- * 
+ * @brief Deprecated: Add the 'most likely barcode' UI element.
+ *
  * This element is displayed
  * below the viewfinder when the barcode engine is not 100% confident
  * in its result and asks for user confirmation. This element is
@@ -683,7 +683,7 @@ typedef enum {
 - (void)showMostLikelyBarcodeUIElement:(BOOL)show;
 
 /**
- * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
+ * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
  *
  * @brief Deprecated: Sets the text that will be displayed above the viewfinder to tell the user to align it with the
  * barcode that should be recognized.
@@ -693,7 +693,7 @@ typedef enum {
 - (void)setTextForInitialScanScreenState:(NSString *)text;
 
 /**
- * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
+ * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
  *
  * @brief Deprecated: Sets the text that will be displayed above the viewfinder to tell the user to align it with the
  * barcode and hold still because a potential code seems to be on the screen.
@@ -703,7 +703,7 @@ typedef enum {
 - (void)setTextForBarcodePresenceDetected:(NSString *)text;
 
 /**
- * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
+ * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
  *
  * @brief Deprecated: Sets the text that will be displayed above the viewfinder when decoding is in progress
  *
@@ -712,7 +712,7 @@ typedef enum {
 - (void)setTextForBarcodeDecodingInProgress:(NSString *)text;
 
 /**
- * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
+ * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
  *
  * @brief Deprecated: Sets the text that will be displayed if the engine was unable to recognize the barcode.
  *
@@ -721,7 +721,7 @@ typedef enum {
 - (void)setTextWhenNoBarcodeWasRecognized:(NSString *)text;
 
 /**
- * @deprecated - This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
+ * @deprecated - This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
  *
  * @brief Deprecated: Sets the text that will be displayed if the engine was unable to recognize the barcode and it is
  * suggested to enter the barcode manually.
@@ -731,7 +731,7 @@ typedef enum {
 - (void)setTextToSuggestManualEntry:(NSString *)text;
 
 /**
- * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
+ * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
  *
  * @brief Deprecated: Sets the text that is displayed alongside the 'most likely barcode' UI element that
  * is displayed when the barcode engine is not 100% confident in its result and asks for user
@@ -742,7 +742,7 @@ typedef enum {
 - (void)setTextForMostLikelyBarcodeUIElement:(NSString *)text;
 
 /**
- * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
+ * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
  *
  * @brief Sets the font size of the text in the view finder.
  *
@@ -757,8 +757,8 @@ typedef enum {
 - (void)setViewfinderFontSize:(float)fontSize;
 
 /**
- * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated. 
- * 
+ * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
+ *
  * @brief Sets the font of all text displayed in the UI.
  *
  * Note: This feature is only available with the
@@ -778,7 +778,7 @@ typedef enum {
  *              individually.
  *
  * @brief Deprecated: Sets the size of the viewfinder relative to the size of the screen size.
- * 
+ *
  * Changing this value does not(!) affect the area in which barcodes are successfully recognized.
  * It only changes the size of the box drawn onto the scan screen.
  *
@@ -788,7 +788,7 @@ typedef enum {
 
 /**
  * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
- * Use method drawViewfinder instead. 
+ * Use method drawViewfinder instead.
  *
  * @brief Deprecated: Sets whether the overlay controller draws the static viewfinder (i.e. white rectangle)
  * when no code was detected yet.
@@ -802,7 +802,7 @@ typedef enum {
 
 /**
  * @deprecated This method serves no purpose any more in Scandit SDK 3.* and is deprecated.
- * 
+ *
  * @brief Deprecated: Sets whether to draw the hook at the top of the viewfinder that displays text.
  *
  *
