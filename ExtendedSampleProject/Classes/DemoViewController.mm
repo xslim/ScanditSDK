@@ -151,11 +151,12 @@
 	[picker setEan8Enabled:[settings boolForKey:@"ean8Enabled"]];
 	[picker setUpceEnabled:[settings boolForKey:@"upceEnabled"]];
 	[picker setCode39Enabled:[settings boolForKey:@"code39Enabled"]];
+	[picker setCode93Enabled:[settings boolForKey:@"code93Enabled"]];
 	[picker setCode128Enabled:[settings boolForKey:@"code128Enabled"]];
 	[picker setMsiPlesseyEnabled:[settings boolForKey:@"msiPlesseyEnabled"]];
     [picker setItfEnabled:[settings boolForKey:@"itfEnabled"]];
 	
-	int checksum = [settings integerForKey:@"msiPlesseyChecksum"];
+	NSInteger checksum = [settings integerForKey:@"msiPlesseyChecksum"];
 	MsiPlesseyChecksumType checksumType = CHECKSUM_MOD_10;
 	if (checksum == 0) {
 		checksumType = NONE;
@@ -170,6 +171,8 @@
     
     [picker setGS1DataBarEnabled:[settings boolForKey:@"dataBarEnabled"]];
     [picker setGS1DataBarExpandedEnabled:[settings boolForKey:@"dataBarExpandedEnabled"]];
+    
+    [picker setCodabarEnabled:[settings boolForKey:@"codabarEnabled"]];
 	
 	[picker setQrEnabled:[settings boolForKey:@"qrEnabled"]];
 	[picker setDataMatrixEnabled:[settings boolForKey:@"dataMatrixEnabled"]];
@@ -199,7 +202,7 @@
 	[picker.overlayController setSearchBarPlaceholderText:
 	 	[settings stringForKey:@"searchBarPlaceholderText"]];
 	
-	int keyboard = [settings integerForKey:@"searchBarKeyboardType"];
+	NSInteger keyboard = [settings integerForKey:@"searchBarKeyboardType"];
 	UIKeyboardType keyboardType = UIKeyboardTypeNumberPad;
 	if (keyboard == 1) {
 		keyboardType = UIKeyboardTypeDecimalPad;

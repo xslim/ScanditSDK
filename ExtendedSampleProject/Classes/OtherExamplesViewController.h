@@ -45,6 +45,9 @@
 	
     UILabel *frozenLabel;
 	UITapGestureRecognizer *tapRecognizer;
+            
+    BOOL modalStartAnimationDone;
+    NSDictionary *modalBufferedResult;
 }
 
 @property (nonatomic, retain) NSString *appKey;
@@ -52,6 +55,8 @@
 @property (nonatomic, retain) UIButton *pickerSubviewButton;
 @property (nonatomic, retain) UILabel *frozenLabel;
 @property (nonatomic, retain) UITapGestureRecognizer *tapRecognizer;
+@property (nonatomic, assign) BOOL modalStartAnimationDone;
+@property (nonatomic, retain) NSDictionary *modalBufferedResult;
 
 
 - (void)adjustPickerToOrientation:(UIInterfaceOrientation)orientation;

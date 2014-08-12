@@ -58,6 +58,7 @@
 		AA1D2CD916DFF9A4004CE6CA /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1D2CD816DFF9A4004CE6CA /* libc++.dylib */; };
 		AA483868138D8F0B00D3091A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AA483866138D8F0B00D3091A /* Reachability.m */; };
 		AA483889138D911C00D3091A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA483888138D911C00D3091A /* SystemConfiguration.framework */; };
+		AA609FEB1926BCFC0005C5E6 /* libscanditsdk-iphone-4.1.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA609FEA1926BCFC0005C5E6 /* libscanditsdk-iphone-4.1.2.a */; };
 		AA6BAE41135F72A600154972 /* ScanditSDKDemoAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA6BAE39135F72A600154972 /* ScanditSDKDemoAppDelegate.mm */; };
 		AA6BAE42135F72A600154972 /* DemoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA6BAE3A135F72A600154972 /* DemoViewController.mm */; };
 		AA6BAE43135F72A600154972 /* DemoScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA6BAE3D135F72A600154972 /* DemoScanViewController.xib */; };
@@ -81,7 +82,6 @@
 		AA6BAFB5135F746000154972 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFAB135F746000154972 /* CoreMedia.framework */; };
 		AA6BAFB6135F746000154972 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFAC135F746000154972 /* QuartzCore.framework */; };
 		AA6BAFCE135F7B4900154972 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6BAFCD135F7B4900154972 /* CoreLocation.framework */; };
-		AACADC1217DEF65F006E5482 /* libscanditsdk-iphone-4.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-4.0.0.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +162,7 @@
 		AA483866138D8F0B00D3091A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Reachability.m; sourceTree = "<group>"; };
 		AA483867138D8F0B00D3091A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Reachability.h; sourceTree = "<group>"; };
 		AA483888138D911C00D3091A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AA609FEA1926BCFC0005C5E6 /* libscanditsdk-iphone-4.1.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libscanditsdk-iphone-4.1.2.a"; sourceTree = "<group>"; };
 		AA6BAE39135F72A600154972 /* ScanditSDKDemoAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScanditSDKDemoAppDelegate.mm; sourceTree = "<group>"; };
 		AA6BAE3A135F72A600154972 /* DemoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DemoViewController.mm; sourceTree = "<group>"; };
 		AA6BAE3B135F72A600154972 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
@@ -187,7 +188,6 @@
 		AA6BAFAB135F746000154972 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		AA6BAFAC135F746000154972 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AA6BAFCD135F7B4900154972 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-4.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libscanditsdk-iphone-4.0.0.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,10 +206,10 @@
 				AA6BAFB3135F746000154972 /* libz.dylib in Frameworks */,
 				AA6BAFB4135F746000154972 /* AVFoundation.framework in Frameworks */,
 				AA6BAFB5135F746000154972 /* CoreMedia.framework in Frameworks */,
+				AA609FEB1926BCFC0005C5E6 /* libscanditsdk-iphone-4.1.2.a in Frameworks */,
 				AA6BAFB6135F746000154972 /* QuartzCore.framework in Frameworks */,
 				AA6BAFCE135F7B4900154972 /* CoreLocation.framework in Frameworks */,
 				AA483889138D911C00D3091A /* SystemConfiguration.framework in Frameworks */,
-				AACADC1217DEF65F006E5482 /* libscanditsdk-iphone-4.0.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +319,7 @@
 		847EAE0E17BD03BB002FFF80 /* ScanditSDK */ = {
 			isa = PBXGroup;
 			children = (
-				AACADC1117DEF65F006E5482 /* libscanditsdk-iphone-4.0.0.a */,
+				AA609FEA1926BCFC0005C5E6 /* libscanditsdk-iphone-4.1.2.a */,
 				847EAE0F17BD03BB002FFF80 /* scanditsdk.strings */,
 				847EAE1217BD03BB002FFF80 /* empty.cpp */,
 				847EAE1317BD03BB002FFF80 /* poweredby.png */,
@@ -570,7 +570,7 @@
 				PRODUCT_NAME = ScanditSDKDemo;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 armv7s i386";
+				VALID_ARCHS = "armv7 armv7s i386 arm64";
 			};
 			name = Debug;
 		};
@@ -596,7 +596,7 @@
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s i386";
+				VALID_ARCHS = "armv7 armv7s i386 arm64";
 			};
 			name = Release;
 		};
@@ -636,7 +636,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s i386";
+				VALID_ARCHS = "armv7 armv7s i386 arm64";
 			};
 			name = AdHocDistribution;
 		};

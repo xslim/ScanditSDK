@@ -56,6 +56,16 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
+			<string>CODE93 *</string>
+			<key>Key</key>
+			<string>code93Enabled</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
 			<string>CODE128 *</string>
 			<key>Key</key>
 			<string>code128Enabled</string>
@@ -125,6 +135,16 @@
 			<string>GS1 DataBar Expanded *</string>
 			<key>Key</key>
 			<string>dataBarExpandedEnabled</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Codabar *</string>
+			<key>Key</key>
+			<string>codabarEnabled</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>

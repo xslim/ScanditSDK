@@ -39,10 +39,15 @@
 @synthesize pickerSubviewButton;
 @synthesize frozenLabel;
 @synthesize tapRecognizer;
+@synthesize modalStartAnimationDone;
+@synthesize modalBufferedResult;
 
 
 - (void)viewDidLoad {
     scaledSubviewActive = NO;
+    
+    self.modalStartAnimationDone = NO;
+    self.modalBufferedResult = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -251,12 +256,32 @@
 	// Set the delegate to receive callbacks.
 	self.scanditSDKBarcodePicker.overlayController.delegate = self;
 	
-	// present the barcode picker modally and start scanning
-	[self presentModalViewController:self.scanditSDKBarcodePicker animated:YES];
+	// Present the barcode picker modally and start scanning. We buffer the result if the code was
+    // already recognized while the modal view is still animating.
+    self.modalStartAnimationDone = NO;
+	if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
+		[self presentViewController:scanditSDKBarcodePicker animated:YES completion:^{
+			self.modalStartAnimationDone = YES;
+			if (self.modalBufferedResult != nil) {
+				[self performSelector:@selector(returnBuffer) withObject:nil afterDelay:0.01];
+			}
+		}];
+	} else {
+		[self presentModalViewController:scanditSDKBarcodePicker animated:NO];
+		self.modalStartAnimationDone = YES;
+	}
 	
-	[self.scanditSDKBarcodePicker startScanning];
+	[scanditSDKBarcodePicker performSelector:@selector(startScanning) withObject:nil afterDelay:0.1];
 }
 //! [ScanditSDKBarcodePicker as a modal view]
+
+- (void)returnBuffer {
+	if (self.modalBufferedResult != nil) {
+		[self scanditSDKOverlayController:scanditSDKBarcodePicker.overlayController
+						   didScanBarcode:self.modalBufferedResult];
+		self.modalBufferedResult = nil;
+	}
+}
 
 #pragma mark -
 #pragma mark Showing the ScanditSDKBarcodePicker in a UINavigationController
@@ -334,6 +359,14 @@
  */
 - (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)scanditSDKOverlayController1
                      didScanBarcode:(NSDictionary *)barcodeResult {
+	if (!self.modalStartAnimationDone) {
+		// If the initial animation hasn't finished yet we buffer the result and return it as soon
+		// as the animation finishes.
+		self.modalBufferedResult = barcodeResult;
+		return;
+	} else {
+		self.modalBufferedResult = nil;
+	}
 	
 	[self.scanditSDKBarcodePicker stopScanningAndKeepTorchState];
 	
@@ -400,7 +433,8 @@
 	[scanditSDKBarcodePicker stopScanning];
 	
 	[[self tabBarController] dismissModalViewControllerAnimated:YES];
-	
+
+    self.modalBufferedResult = nil;
 	self.scanditSDKBarcodePicker = nil;
 }
 
