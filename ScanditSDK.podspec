@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.resources = 'ScanditSDK/*.{png,wav,lproj}' 
 
   s.preserve_paths = 'ScanditSDK/libscanditsdk-iphone-4.1.2.a'
-  s.library = 'scanditsdk-iphone-4.0.0','z', 'iconv', 'c++'
+  s.library = 'scanditsdk-iphone-4.1.2','z', 'iconv', 'c++'
   
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/ScanditSDK/ScanditSDK"' }
 
