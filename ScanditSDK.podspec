@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = "Scandit"
   s.source       = { :git => "https://github.com/xslim/ScanditSDK.git", :tag => s.version.to_s }
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '5.1.1'
   s.requires_arc = false
 
   s.source_files = 'ScanditSDK/*.{h,cpp}'
